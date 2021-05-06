@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item *ngFor="let concert of concertTab; let position=index">
+  <ion-item *ngFor="let concert of concertList; let position=index">
     <ion-label>
       <h1>{{ concert.groupe }}</h1>
       <p>{{ concert.genre }}</p>
@@ -22,7 +22,7 @@
       <p>Commentaires: {{ concert.commentaire }}</p>
     </ion-label>
     <ion-buttons slot="end">
-      <ion-button color="primary" (click)="deleteOneConcert(position)">
+      <ion-button color="primary" (click)="updateOneConcert(position)">
         <ion-icon name="pencil-outline"></ion-icon>
       </ion-button>
 

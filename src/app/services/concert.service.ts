@@ -11,7 +11,7 @@ const STORAGE_KEY = "concert";
 export class ConcertService {
   name= "test"
 
-  private concertTab = [];
+  private concertList = [];
 
   public input = {
     salle: null,
@@ -27,8 +27,8 @@ export class ConcertService {
 
   public async getConcert(){
     const data:any = await Storage.get({key: STORAGE_KEY});
-    this.concertTab = JSON.parse(data.value) || [];
-    return this.concertTab;
+    this.concertList = JSON.parse(data.value) || [];
+    return this.concertList;
   }
 
   public getConcertData(){
@@ -44,7 +44,7 @@ export class ConcertService {
     }
   }
   public async addConcert(data){
-    this.concertTab.push(data);
+    this.concertList.push(data);
     this.input.salle = null;
     this.input.ville = null;
     this.input.groupe = null;
@@ -61,7 +61,7 @@ export class ConcertService {
   private async persist(){
     await Storage.set({
       key: STORAGE_KEY,
-      value: JSON.stringify(this.concertTab)
+      value: JSON.stringify(this.concertList)
     });
   }
   public valideInput(){
@@ -69,7 +69,12 @@ export class ConcertService {
   }
 
   public deleteConcert(pos){
-    this.concertTab.splice(pos,1);
+    this.concertList.splice(pos,1);
     this.persist();
   }
+
+  public updateConcert(){ 
+    this.persist();
+  }
+
 }

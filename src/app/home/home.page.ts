@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ConcertService } from '../services/concert.service';
 
@@ -9,13 +10,14 @@ import { ConcertService } from '../services/concert.service';
 })
 export class HomePage implements OnInit {
 
-  constructor(public formConcert: ConcertService, 
-    private alertCtrl: AlertController) {}
+  constructor(public itemInputForm: ConcertService, 
+    private alertCtrl: AlertController,
+    private router: Router) {}
 
-  public concertTab = [];
+  public concertList = [];
 
   public async ngOnInit(){
-    this.concertTab = await this.formConcert.getConcert();
+    this.concertList = await this.itemInputForm.getConcert();
   }
 
   public async deleteOneConcert(pos){
@@ -26,7 +28,7 @@ export class HomePage implements OnInit {
         { text: 'NON' },
         { 
           text: 'OUI', 
-          handler: ()=> { this.formConcert.deleteConcert(pos)}
+          handler: ()=> { this.itemInputForm.deleteConcert(pos)}
         }
       ]
     });
@@ -34,7 +36,10 @@ export class HomePage implements OnInit {
     
   }
 
-  
+  public updateOneConcert(pos){
+    this.itemInputForm.input = this.concertList[pos]
+    this.router.navigateByUrl('/update');
+  }
 
 
 }

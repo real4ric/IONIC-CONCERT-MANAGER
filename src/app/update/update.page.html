@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Add Concert</ion-title>
+    <ion-title>Update Concert</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -44,10 +44,10 @@
       <ion-label> Commentaires: </ion-label>
       <ion-textarea [(ngModel)]="itemInputForm.input.commentaire"></ion-textarea>
     </ion-item>
+  
   </ion-list>
   
-  <ion-button expand="block" (click)="validate()">
-    Valider
+  <ion-button expand="block" (click)="updateOneConcert()">
+    Update
   </ion-button>
-
 </ion-content>

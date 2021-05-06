@@ -10,12 +10,12 @@ import { ConcertService } from '../services/concert.service';
 })
 export class ConcertPage implements OnInit {
 
-  constructor(public formConcert: ConcertService, private router: Router, private toastCtrl: ToastController) { }
+  constructor(public itemInputForm: ConcertService, private router: Router, private toastCtrl: ToastController) { }
 
   ngOnInit() {}
 
   public async validate (){
-    if(!this.formConcert.valideInput()){
+    if(!this.itemInputForm.valideInput()){
       const toast = await this.toastCtrl.create({
         message: 'Fill all the Blanks',
         color: 'danger',
@@ -25,7 +25,7 @@ export class ConcertPage implements OnInit {
       toast.present();
       return;
     }
-    this.formConcert.addConcert(this.formConcert.getConcertData());
+    this.itemInputForm.addConcert(this.itemInputForm.getConcertData());
     this.router.navigateByUrl('/home');
   }
 
