@@ -10,7 +10,9 @@ import { ConcertService } from '../services/concert.service';
 })
 export class ConcertPage implements OnInit {
 
-  constructor(public itemInputForm: ConcertService, private router: Router, private toastCtrl: ToastController) { }
+  constructor(public itemInputForm: ConcertService, 
+    private router: Router, 
+    private toastCtrl: ToastController) { }
 
   ngOnInit() {}
 
