@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Concert Manager
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/concert">
+        <ion-icon name="add-outline"></ion-icon> Add
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item *ngFor="let concert of concertTab; let position=index">
+    <ion-label>
+      <h1>{{ concert.groupe }}</h1>
+      <p>{{ concert.genre }}</p>
+      <h2>{{ concert.salle +", "+ concert.ville }}</h2>
+      <h3>{{ concert.date }}</h3>
+      <p>Note: {{ concert.note }}</p>
+      <p>Commentaires: {{ concert.commentaire }}</p>
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="deleteOneConcert(position)">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button color="danger" (click)="deleteOneConcert(position)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+</ion-content>

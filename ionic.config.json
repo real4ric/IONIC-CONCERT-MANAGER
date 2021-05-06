@@ -1,0 +1,7 @@
+{
+  "name": "Concert-Manager-ECF",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Concert</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label> Groupe/artiste: </ion-label>
+      <ion-input [(ngModel)]="formConcert.input.groupe"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label> Genre: </ion-label>
+      <ion-input [(ngModel)]="formConcert.input.genre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label> Salle: </ion-label>
+      <ion-input [(ngModel)]="formConcert.input.salle"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label> Ville: </ion-label>
+      <ion-input [(ngModel)]="formConcert.input.ville"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label> Date: </ion-label>
+      <ion-input type="date" [(ngModel)]="formConcert.input.date"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label> Note: </ion-label>
+      <ion-input type="number" min="0" max="5" [(ngModel)]="formConcert.input.note"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label> Commentaires: </ion-label>
+      <ion-textarea [(ngModel)]="formConcert.input.commentaire"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  
+  <ion-button expand="block" (click)="validate()">
+    Valider
+  </ion-button>
+
+</ion-content>
