@@ -17,7 +17,7 @@ export class ConcertPage implements OnInit {
   public async validate (){
     if(!this.formConcert.valideInput()){
       const toast = await this.toastCtrl.create({
-        message: 'Cabine, tu t\'es troué',
+        message: 'Fill all the Blanks',
         color: 'danger',
         duration: 1000,
         position: 'middle',
